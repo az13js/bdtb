@@ -38,8 +38,7 @@ class AppDebug extends Command
      */
     public function handle()
     {
-        while (true) {
-        }
+        echo 'yes' . PHP_EOL;
     }
 
     /**
@@ -160,8 +159,8 @@ class AppDebug extends Command
                 break;
             }
             $level = intval(($pix + 0.5) * 255);
-            $level = $level < 0 ? 0;
-            $level = $level > 255 ? 255;
+            $level = $level < 0 ? 0 : $level;
+            $level = $level > 255 ? 255 : $level;
             $color = imagecolorallocate($img, $level, $level, $level);
             imagesetpixel($img, $x, $y, $color);
             imagecolordeallocate($img, $color);
